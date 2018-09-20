@@ -1,7 +1,7 @@
 //import liraries
 import React, { Component } from "react";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
-import NavigationService from '../../network/NavigationService';
+import NavigationService from "../../network/NavigationService";
 
 // create a component
 class Tag extends Component {
@@ -10,12 +10,12 @@ class Tag extends Component {
   }
 
   onPress = () => {
-    NavigationService.navigate('Problems', { 'item': this.props.tag });
-  }
+    NavigationService.navigate("Problems", { item: this.props.tag });
+  };
 
   render() {
     return (
-      <TouchableOpacity onPress={ () =>this.onPress()}>
+      <TouchableOpacity onPress={() => this.onPress()}>
         <Text style={styles.tag}>{this.props.tag}</Text>
       </TouchableOpacity>
     );

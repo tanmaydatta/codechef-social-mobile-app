@@ -7,7 +7,7 @@ import {
   Dimensions,
   TouchableOpacity
 } from "react-native";
-import NavigationService from '../../network/NavigationService';
+import NavigationService from "../../network/NavigationService";
 
 // create a component
 const DEFAULT_COLUMN_WIDTH = 60;
@@ -17,7 +17,10 @@ class TagProblemRow extends Component {
   }
   onPress = () => {
     console.log("onpress");
-    NavigationService.navigate('Problem', { pcode: this.props.item, code: "PRACTICE" });
+    NavigationService.navigate("Problem", {
+      pcode: this.props.item,
+      code: "PRACTICE"
+    });
   };
   render() {
     let style = {
