@@ -1,0 +1,51 @@
+{
+  "name": "CodechefSocial",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "decode-html": "^2.0.0",
+    "highlight.js": "^9.12.0",
+    "moment": "^2.22.2",
+    "prismjs": "^1.15.0",
+    "react": "16.3.1",
+    "react-markdown": "^3.5.0",
+    "react-native": "0.55.4",
+    "react-native-custom-webview": "^1.0.37",
+    "react-native-firebase": "^4.3.8",
+    "react-native-gifted-chat": "^0.4.3",
+    "react-native-html-parser": "0.0.5",
+    "react-native-htmlview": "^0.13.0",
+    "react-native-indicators": "^0.13.0",
+    "react-native-markdown-renderer": "^3.2.8",
+    "react-native-markdown-text": "^1.0.1",
+    "react-native-material-dropdown": "^0.11.1",
+    "react-native-render-html": "^3.10.0",
+    "react-native-round-flags": "^1.0.4",
+    "react-native-secure-key-store": "^1.0.9",
+    "react-native-simple-markdown": "^1.1.0",
+    "react-native-simple-table": "0.0.3",
+    "react-native-svg": "^6.5.2",
+    "react-native-svg-charts": "^5.2.0",
+    "react-native-swipeout": "^2.3.6",
+    "react-native-syntax-highlighter": "^2.0.0",
+    "react-native-vector-icons": "^5.0.0",
+    "react-navigation": "2.13.0",
+    "react-syntax-highlighter": "^8.0.1",
+    "react-timer-mixin": "^0.13.4",
+    "realm": "^2.15.3",
+    "victory-native": "^30.3.0"
+  },
+  "devDependencies": {
+    "babel-jest": "23.4.2",
+    "jest": "23.5.0",
+    "babel-preset-react-native": "2.1.0",
+    "react-test-renderer": "16.4.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
