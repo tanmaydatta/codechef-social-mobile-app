@@ -29,9 +29,10 @@ class Home extends React.Component {
       lastUpdatedAt: String(new Date().getTime())
     };
     this._onRefresh = this._onRefresh.bind(this);
-    this.listener = this.props.navigation.addListener("didFocus", () =>
-      this.refresh(String(new Date().getTime()))
-    );
+    this.listener = this.props.navigation.addListener("didFocus", () => {
+      console.log("didfocus");
+      this._onRefresh();
+    });
   }
   componentDidMount() {
     var millisecondsQuery =
@@ -42,7 +43,8 @@ class Home extends React.Component {
       realm.delete(oldPosts);
       console.log("deleted");
     });
-    this._onRefresh();
+    // console.log("componentDidMount");
+    // this._onRefresh();
     firebase
       .messaging()
       .hasPermission()
@@ -161,7 +163,7 @@ class Home extends React.Component {
 
   async refresh(lastUpdatedAt) {
     console.log(lastUpdatedAt);
-    Network.getFeed(lastUpdatedAt, false).then(async data => {
+    Network.getFeed(lastUpdatedAt).then(async data => {
       if (data != null) {
         let resultArray = data.result;
         var queue = [];

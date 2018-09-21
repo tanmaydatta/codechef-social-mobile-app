@@ -105,7 +105,7 @@ class Network {
   static async refreshToken() {
     console.log("refresh");
     const val = await AsyncStorage.getItem("accessToken");
-    return fetch(alibabaUrl + "/codechef-social-server/api/users/getNewToken", {
+    const response = await fetch(alibabaUrl + "/codechef-social-server/api/users/getNewToken", {
       method: "GET",
       headers: {
         token: val
@@ -129,6 +129,7 @@ class Network {
         console.error(error);
         return {};
       });
+      return response;
   }
 
   static async getTodos() {
@@ -606,7 +607,7 @@ class Network {
 
   static async getContestDetails(contestCode) {
     const val = await AsyncStorage.getItem("accessToken");
-    return this.apiCall(
+    const response = await this.apiCall(
       codechefUrl + "contests/" + contestCode,
       "GET",
       {
@@ -617,6 +618,7 @@ class Network {
       true,
       false
     );
+    return response;
   }
 
   static async getRatings(contestType, offset) {
