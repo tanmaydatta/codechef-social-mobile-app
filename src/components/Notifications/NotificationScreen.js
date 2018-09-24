@@ -44,13 +44,17 @@ class NotificationScreen extends React.Component {
 
   convertToArray(realmObjectsArray) {
     let copyOfJsonArray = Array.from(realmObjectsArray);
-    let jsonArray = JSON.parse(JSON.stringify(copyOfJsonArray));
-    this.setState({
-      ...this.state,
-      lastUpdatedAt: jsonArray[jsonArray.length - 1].feedDate
-    });
-    jsonArray.sort(this.predicateBy("feedDate"));
-    return jsonArray;
+    if (copyOfJsonArray.length > 0) { 
+      let jsonArray = JSON.parse(JSON.stringify(copyOfJsonArray));
+      this.setState({
+        ...this.state,
+        lastUpdatedAt: jsonArray[jsonArray.length - 1].feedDate
+      });
+      jsonArray.sort(this.predicateBy("feedDate"));
+      return jsonArray;
+    } else {
+      return [];
+    }
   }
 
   componentDidMount() {

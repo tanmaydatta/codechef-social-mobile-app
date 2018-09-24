@@ -146,14 +146,18 @@ class Home extends React.Component {
 
   convertToArray(realmObjectsArray) {
     let copyOfJsonArray = Array.from(realmObjectsArray);
-    let jsonArray = JSON.parse(JSON.stringify(copyOfJsonArray));
-    jsonArray.sort(this.predicateBy("feedDate"));
-    this.setState({
-      ...this.state,
-      lastUpdatedAt: jsonArray[jsonArray.length - 1].feedDate
-    });
-    console.log(jsonArray[jsonArray.length - 1]);
-    return jsonArray;
+    if (copyOfJsonArray.length > 0) {  
+      let jsonArray = JSON.parse(JSON.stringify(copyOfJsonArray));
+      jsonArray.sort(this.predicateBy("feedDate"));
+      this.setState({
+        ...this.state,
+        lastUpdatedAt: jsonArray[jsonArray.length - 1].feedDate
+      });
+      console.log(jsonArray[jsonArray.length - 1]);
+      return jsonArray;
+    } else {
+      return [];
+    }
   }
 
   async _onRefresh() {
@@ -164,6 +168,7 @@ class Home extends React.Component {
   async refresh(lastUpdatedAt) {
     console.log(lastUpdatedAt);
     Network.getFeed(lastUpdatedAt).then(async data => {
+      console.log(data)
       if (data != null) {
         let resultArray = data.result;
         var queue = [];
